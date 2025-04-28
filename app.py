@@ -1,5 +1,6 @@
 from flask import Flask,request,render_template
 from markupsafe import escape
+import requests
 
 app = Flask(__name__)
 
@@ -23,7 +24,9 @@ def profile(username):
 
 @app.get('/posts')
 def posts():
-    return render_template('posts.html',posts=[1,2,3,4,5,6,7])
+    res = requests.get("https://jsonplaceholder.typicode.com/posts")
+    data = res.json()
+    return render_template('posts.html',posts=data)
 
 @app.route("/posts/<int:id>")
 def post_id(id):
