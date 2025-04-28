@@ -30,7 +30,9 @@ def posts():
 
 @app.route("/posts/<int:id>")
 def post_id(id):
-    return f"Post id: {escape(id)}"
+    res = requests.get(f"https://jsonplaceholder.typicode.com/posts/{id}")
+    data = res.json()
+    return f"Post id: {escape(id)} and title: {escape(data['title'])}"
 
 
 # HTTP Methods
