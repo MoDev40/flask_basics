@@ -21,6 +21,10 @@ def name(name):
 def profile(username):
     return f"Username: {escape(username)}"
 
+@app.get('/posts')
+def posts():
+    return render_template('posts.html',posts=[1,2,3,4,5,6,7])
+
 @app.route("/posts/<int:id>")
 def post_id(id):
     return f"Post id: {escape(id)}"
