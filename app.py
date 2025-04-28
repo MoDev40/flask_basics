@@ -36,6 +36,12 @@ def login_page():
 def login_check():
     return "Login successfully"
 
+@app.route("/signup",methods=['GET','POST'])
+def signup():
+    if(request.method == "GET"):
+        return "SignUp Page"
+    else:
+        return "SignUp successfully"
 
 if __name__ == "__main__":
     app.run(debug=True)
