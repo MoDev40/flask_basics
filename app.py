@@ -1,13 +1,13 @@
-from flask import Flask,request
+from flask import Flask,request,render_template
 from markupsafe import escape
 
 app = Flask(__name__)
 
 
 @app.route("/")
-def syHi():
-    return "Hi from flask"
-
+def index():
+    return render_template('index.html')
+    
 @app.route("/welcome")
 def welcome():
     return "<h1>Welcome flask server</h1>"
