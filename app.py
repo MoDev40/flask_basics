@@ -21,6 +21,11 @@ def name(name):
 def profile(username):
     return f"Username: {escape(username)}"
 
+@app.route("/posts/<int:id>")
+def post_id(id):
+    return f"Post id: {escape(id)}"
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)
