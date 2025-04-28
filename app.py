@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask,request
 from markupsafe import escape
 
 app = Flask(__name__)
@@ -25,6 +25,16 @@ def profile(username):
 def post_id(id):
     return f"Post id: {escape(id)}"
 
+
+# HTTP Methods
+
+@app.get("/login")
+def login_page():
+    return "Login Page"
+
+@app.post("/login")
+def login_check():
+    return "Login successfully"
 
 
 if __name__ == "__main__":
