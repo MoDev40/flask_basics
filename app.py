@@ -1,6 +1,8 @@
 from flask import Flask,request,render_template
 from markupsafe import escape
 import requests
+from werkzeug.utils import secure_filename
+
 
 app = Flask(__name__)
 
@@ -58,6 +60,7 @@ def signup():
 def uploadthing():
     if request.method == 'POST':
         file = request.files['file']
+        file.save(f'./uploads/{secure_filename(file.filename)}')
         print(file)
     return { 'message':"Successfully uploaded"}
 
