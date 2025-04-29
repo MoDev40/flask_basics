@@ -43,7 +43,8 @@ def login_page():
 
 @app.post("/login")
 def login_check():
-    return "Login successfully"
+    form = request.form
+    return { 'username':form['username'],'password':form['password'] }
 
 @app.route("/signup",methods=['GET','POST'])
 def signup():
