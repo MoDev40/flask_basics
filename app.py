@@ -54,5 +54,12 @@ def signup():
     else:
         return "SignUp successfully"
 
+@app.route('/uploads',methods=['GET','POST'])
+def uploadthing():
+    if request.method == 'POST':
+        file = request.files['file']
+        print(file)
+    return { 'message':"Successfully uploaded"}
+
 if __name__ == "__main__":
     app.run(debug=True)
