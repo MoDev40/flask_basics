@@ -64,5 +64,13 @@ def uploadthing():
         print(file)
     return { 'message':"Successfully uploaded"}
 
+
+@app.route('/forms',methods=['GET','POST'])
+def forms():
+    if(request.method == "POST"):
+        return request.form
+    else:
+        return render_template('forms.html')
+
 if __name__ == "__main__":
     app.run(debug=True)
