@@ -60,9 +60,17 @@ def signup():
 def uploadthing():
     if request.method == 'POST':
         file = request.files['file']
-        file.save(f'./uploads/{secure_filename(file.filename)}')
-        print(file)
-    return { 'message':"Successfully uploaded"}
+        accepted_files= ['jpg','png','jpeg']
+        
+        if file:
+            filename = secure_filename(file.filename)
+            ext = filename.split('.')[1]
+            if ext not in accepted_files:
+                return f'{[ext]} Not allowed this type of file accepted files are {accepted_files}'
+            file.save(f'./uploads/{filename}')
+            return { 'message':"Successfully uploaded"}
+        else:
+            return { 'message':"There is no file to uploaded"}
 
 
 @app.route('/forms',methods=['GET','POST'])
