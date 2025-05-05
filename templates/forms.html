@@ -9,7 +9,6 @@
     <form action="forms" method="post">
       <input type="text" name="username" placeholder="username" />
       <input type="email" name="email" placeholder="example@gmail.com" />
-      <input type="password" name="password" placeholder="..........." />
       <div>
         <label for="sex">Sex:</label>
         <div>
@@ -28,6 +27,22 @@
           <option value="teacher">Teacher</option>
           <option value="staff">Staff</option>
         </select>
+      </div>
+      <div>
+        <label for="skills">Skills</label>
+        <br />
+        <div>
+          <label for="html">HTML5</label>
+          <input type="checkbox" name="skills" value="html5" />
+        </div>
+        <div>
+          <label for="css">css3</label>
+          <input type="checkbox" name="skills" value="css3" />
+        </div>
+        <div>
+          <label for="js/ts">js/ts</label>
+          <input type="checkbox" name="skills" value="js/ts" />
+        </div>
       </div>
       <button type="submit">Save</button>
       <button type="reset">Reset</button>

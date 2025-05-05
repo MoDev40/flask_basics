@@ -68,7 +68,8 @@ def uploadthing():
 @app.route('/forms',methods=['GET','POST'])
 def forms():
     if(request.method == "POST"):
-        return request.form
+        form = request.form
+        return { 'skills':form.getlist('skills') ,'data':form }
     else:
         return render_template('forms.html')
 
