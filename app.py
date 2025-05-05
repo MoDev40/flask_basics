@@ -1,4 +1,4 @@
-from flask import Flask,request,render_template
+from flask import Flask,request,render_template,jsonify
 from markupsafe import escape
 import requests
 from werkzeug.utils import secure_filename
@@ -80,6 +80,10 @@ def forms():
         return { 'skills':form.getlist('skills') ,'data':form }
     else:
         return render_template('forms.html')
+
+@app.route('/json')
+def json_data():
+    return jsonify({'error':'Hi am here oops!'})
 
 if __name__ == "__main__":
     app.run(debug=True)
