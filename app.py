@@ -22,7 +22,12 @@ def addMany():
     db.session.commit()
     return 1
 
+def readByName(name):
+    data = Person.query.where(Person.name == name).one()
+    print(data.to_dis())
+
 with app.test_request_context():
+    readByName("Alai")
     print('Hi testing...')
 
 if __name__ == "__main__":
