@@ -1,4 +1,4 @@
-from flask import Flask,request,render_template,jsonify
+from flask import Flask,request,render_template,jsonify,redirect
 from markupsafe import escape
 import requests
 from werkzeug.utils import secure_filename
@@ -84,6 +84,15 @@ def forms():
 @app.route('/json')
 def json_data():
     return jsonify({'error':'Hi am here oops!'})
+
+@app.route('/dashboard/<role>')
+def dashboard(role):
+    if role == "admin":
+        return "Hi admin panel is here"
+    elif role == "user":
+        return "Hi user panel is here"
+    else:
+        return redirect('/')
 
 if __name__ == "__main__":
     app.run(debug=True)
