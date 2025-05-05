@@ -16,6 +16,12 @@ def readAll():
     data = Person.query.all()
     return [ x.to_dis() for x in data ]
 
+def addMany():
+    data = [ Person(name="Alai"),Person(name="Sundus")]
+    db.session.add_all(data)
+    db.session.commit()
+    return 1
+
 with app.test_request_context():
     print('Hi testing...')
 
